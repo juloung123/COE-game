@@ -20,6 +20,19 @@ public class Player{
     public void update(){
         x += speedx;
         y += speedy;
+        //การชนขอบออกจากจอ
+        if(x<0){
+            x = 0;
+        }
+        if(y<0){
+            y= 0;
+        }
+        if(x > 1230){
+            x = 1230;
+        }
+        if(y > 650){
+            y = 650;
+        }
     }
     //method ไว้วาดตัวละคร
     public void draw(Graphics2D g2d){
@@ -30,16 +43,16 @@ public class Player{
     public void keyPressed(KeyEvent e){
         int key= e.getKeyCode();
         if(key == KeyEvent.VK_A){
-            speedx = -2;
+            speedx = -5;
         }
         if(key == KeyEvent.VK_D){
-            speedx = 2;
+            speedx = 5;
         }
         if(key == KeyEvent.VK_W){
-            speedy = -2;
+            speedy = -5;
         }
         if(key == KeyEvent.VK_S){
-            speedy = 2;
+            speedy = 5;
         }
     }
     //ปล่อยปุ่ม
