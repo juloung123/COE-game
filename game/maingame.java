@@ -14,5 +14,6 @@ public class maingame {
         window.setLocationRelativeTo(null);
         window.add(new graphic());
         window.setVisible(true);
+        System.out.println("Test");
     }
 }
