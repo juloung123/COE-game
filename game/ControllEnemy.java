@@ -29,9 +29,11 @@ public class ControllEnemy{
             temp.update();
         }
     }
+    //เพิ่ม enemy
     public void addEnemy(Enemy enemy){
         e.add(enemy);
     }
+    //ลบ enemy ออก
     public void removeEnemy(Enemy enemy){
         e.remove(enemy);
     }
