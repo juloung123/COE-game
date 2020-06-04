@@ -36,7 +36,7 @@ public class Player{
     }
     //method ไว้วาดตัวละคร
     public void draw(Graphics2D g2d){
-        g2d.setColor(Color.RED);
+        g2d.setColor(Color.WHITE);
         g2d.fillRect(x, y,32,32);
     }
     //กดปุ่มค้างไว้
