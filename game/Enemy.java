@@ -12,7 +12,7 @@ public class Enemy{
     private int x;
     private int y;
     private LinkedList<Bullet> e = Bulletbag.getBulletBounds(); 
-    private int speedx=5;
+    private int speedx=-5;
     public Enemy(int x,int y){
         this.x = x;
         this.y = y;
@@ -25,12 +25,6 @@ public class Enemy{
     }
     public void update(){
         x+=speedx;
-        if(x > maingame.WIDTH-50){
-            speedx=-5;
-        }
-        if(x < 0){
-            speedx=5;
-        }
     }
     public void collision(){
         for(int i=0;i<e.size();i++){
@@ -41,5 +35,11 @@ public class Enemy{
     }
     public Rectangle getBounds(){
         return new Rectangle(x,y,32,32);
+    }
+    public int positionx(){
+        return x;
+    }
+    public int positiony(){
+        return y;
     }
 }
