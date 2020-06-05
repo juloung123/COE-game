@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Enemy{
     private int x;
@@ -28,5 +29,8 @@ public class Enemy{
         if(x < 0){
             speedx=5;
         }
+    }
+    public Rectangle getBounds(){
+        return new Rectangle(x,y,32,32);
     }
 }

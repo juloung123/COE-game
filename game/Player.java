@@ -5,6 +5,8 @@ import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.util.LinkedList;
 
 public class Player{
     private int x;
@@ -12,6 +14,7 @@ public class Player{
     //กำหนดความเร็วการเคลื่อนไหว
     private int speedx = 0 ;
     private int speedy = 0 ;
+    private LinkedList<Enemy> e = ControllEnemy.getEnemyBounds(); 
     public Player(int x,int y){
         this.x = x;
         this.y = y;
@@ -33,11 +36,13 @@ public class Player{
         if(y > 650){
             y = 650;
         }
+        collision();
     }
     //method ไว้วาดตัวละคร
     public void draw(Graphics2D g2d){
         g2d.setColor(Color.WHITE);
         g2d.fillRect(x, y,32,32);
+        //g2d.draw(getBounds());
     }
     //กดปุ่มค้างไว้
     public void keyPressed(KeyEvent e){
@@ -69,6 +74,17 @@ public class Player{
         }
         if(key == KeyEvent.VK_S){
             speedy = 0;
+        }
+    }
+    public Rectangle getBounds(){
+        return new Rectangle(x,y,32,32);
+    }
+    //เช็คการชนของ Player กับ enemy
+    public void collision(){
+        for(int i=0;i<e.size();i++){
+            if(getBounds().intersects(e.get(i).getBounds())){
+                e.remove(i);
+            }
         }
     }
 }

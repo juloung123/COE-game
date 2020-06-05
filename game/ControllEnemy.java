@@ -8,7 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 //บรรจุ Object Enemy
 public class ControllEnemy{
-    LinkedList<Enemy> e = new LinkedList<>();
+    private static LinkedList<Enemy> e = new LinkedList<>();
     Enemy temp;
     public ControllEnemy(){
         addEnemy(new Enemy(150,150));
@@ -36,5 +36,9 @@ public class ControllEnemy{
     //ลบ enemy ออก
     public void removeEnemy(Enemy enemy){
         e.remove(enemy);
+    }
+    //ส่งข้อมูลขอบเขตของ Enemy ไป
+    public static LinkedList<Enemy> getEnemyBounds(){
+        return e;
     }
 }
