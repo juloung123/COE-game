@@ -9,8 +9,8 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 
 public class Player{
-    private int x;
-    private int y;
+    private static int x;
+    private static int y;
     //กำหนดความเร็วการเคลื่อนไหว
     private int speedx = 0 ;
     private int speedy = 0 ;
@@ -40,6 +40,8 @@ public class Player{
     }
     //method ไว้วาดตัวละคร
     public void draw(Graphics2D g2d){
+        g2d.setColor(Color.blue);
+        g2d.fillRect(x+32,y+11,20,10);
         g2d.setColor(Color.WHITE);
         g2d.fillRect(x, y,32,32);
         //g2d.draw(getBounds());
@@ -86,5 +88,12 @@ public class Player{
                 e.remove(i);
             }
         }
+    }
+    //ส่งตำแหน่งปัจจุบันของ Player
+    public static int positionX(){
+        return x;
+    }
+    public static int positiony(){
+        return y;
     }
 }

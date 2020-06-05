@@ -4,8 +4,7 @@ import java.awt.event.*;
 
 public class KeyInput extends KeyAdapter{
     Player p;
-
-    public KeyInput(Player p ){
+    public KeyInput(Player p){
         this.p = p ;
     }
     //กดปุ่มค้าง

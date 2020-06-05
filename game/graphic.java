@@ -11,12 +11,15 @@ public class graphic extends JPanel implements ActionListener{
     Timer loop;
     Player player;
     ControllEnemy c;
+    Bulletbag k;
     public graphic(){
         loop = new Timer(10,this);
         loop.start();
         player = new Player(100,100);
         c = new ControllEnemy();
+        k = new Bulletbag();
         addKeyListener(new KeyInput(player));
+        addKeyListener(new Keyinput2(k));
         setFocusable(true);
     }
     //จัดการกราฟฟิกลงบนจอ
@@ -27,10 +30,12 @@ public class graphic extends JPanel implements ActionListener{
         g2d.fillRect(0, 0, maingame.WIDTH, maingame.HIGHT);
         player.draw(g2d);
         c.draw(g2d);
+        k.draw(g2d);
     }
     public void actionPerformed(ActionEvent e){
         player.update();
         c.update();
+        k.update();
         repaint();
     }
 }
