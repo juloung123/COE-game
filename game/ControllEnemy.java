@@ -24,9 +24,10 @@ public class ControllEnemy{
         addEnemy(new Enemy(1230,500));
         addEnemy(new Enemy(1230,550));
         addEnemy(new Enemy(1230,600));
+        addEnemy(new Enemy(1230,650));
+        addEnemy(new Enemy(1230,700));
         addEnemy(new Enemy(1230,750));
         addEnemy(new Enemy(1230,800));
-        addEnemy(new Enemy(1230,850));
     }
     public void draw(Graphics2D g2d){
         for(int i = 0; i < e.size();i++){
@@ -36,14 +37,16 @@ public class ControllEnemy{
     }
     // ให้ตัวละครเคลื่อนที่หลายๆตัว
     public void update(){
-        for(int i =0 ; i < e.size();i++){
-            temp=e.get(i);
-            temp.update();
-            if(temp.positionx()<0){
-                e.remove(i);
+        if(Player.HP != 0){
+            for(int i =0 ; i < e.size();i++){
+                temp=e.get(i);
+                temp.update();
+                if(temp.positionx()<0){
+                    e.remove(i);
+                }
             }
+            randomenemy();
         }
-        randomenemy();
     }
     //เพิ่ม enemy
     public void addEnemy(Enemy enemy){
@@ -57,6 +60,7 @@ public class ControllEnemy{
     public static LinkedList<Enemy> getEnemyBounds(){
         return e;
     }
+    //รูปแบบการสุ่ม enemy ขึ้นมา
     public void randomenemy(){
         int a = (int)(Math.random()*200);
         int rana = (int)(Math.random()*200);
@@ -72,6 +76,12 @@ public class ControllEnemy{
         }
         if(ranc == 1){
             addEnemy(new Enemy(1230,c));
+        }
+    }
+    //restart โดยการลบ enemy ทั้งหมด
+    public static void restart(){
+        for(int i = 0;i<e.size();i++){
+            e.remove(i);
         }
     }
 }

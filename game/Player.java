@@ -14,6 +14,7 @@ public class Player{
     //กำหนดความเร็วการเคลื่อนไหว
     private int speedx = 0 ;
     private int speedy = 0 ;
+    public static int HP = 3;
     private LinkedList<Enemy> e = ControllEnemy.getEnemyBounds(); 
     public Player(int x,int y){
         this.x = x;
@@ -21,22 +22,24 @@ public class Player{
     }
     //method จัดการการเคลื่อนที่ของผู้เล่น
     public void update(){
-        x += speedx;
-        y += speedy;
-        //การชนขอบออกจากจอ
-        if(x<0){
-            x = 0;
+        if(HP != 0){
+            x += speedx;
+            y += speedy;
+            //การชนขอบออกจากจอ
+            if(x<0){
+                x = 0;
+            }
+            if(y<0){
+                y= 0;
+            }
+            if(x > 1230){
+                x = 1230;
+            }
+            if(y > 650){
+                y = 650;
+            }
+            collision();
         }
-        if(y<0){
-            y= 0;
-        }
-        if(x > 1230){
-            x = 1230;
-        }
-        if(y > 650){
-            y = 650;
-        }
-        collision();
     }
     //method ไว้วาดตัวละคร
     public void draw(Graphics2D g2d){
@@ -44,7 +47,6 @@ public class Player{
         g2d.fillRect(x+32,y+11,20,10);
         g2d.setColor(Color.WHITE);
         g2d.fillRect(x, y,32,32);
-        //g2d.draw(getBounds());
     }
     //กดปุ่มค้างไว้
     public void keyPressed(KeyEvent e){
@@ -60,6 +62,16 @@ public class Player{
         }
         if(key == KeyEvent.VK_S){
             speedy = 5;
+        }
+        if(key == KeyEvent.VK_SPACE && HP == 0)
+        {
+            HP = 3;
+            Bulletbag.score = 0;
+            Bulletbag.upscore = 0;
+            x = 100;
+            y = 350;
+            ControllEnemy.restart();
+            Bulletbag.restart();
         }
     }
     //ปล่อยปุ่ม
@@ -86,6 +98,7 @@ public class Player{
         for(int i=0;i<e.size();i++){
             if(getBounds().intersects(e.get(i).getBounds())){
                 e.remove(i);
+                --HP;
             }
         }
     }
@@ -95,5 +108,14 @@ public class Player{
     }
     public static int positiony(){
         return y;
+    }
+    public static void hpup(){
+        HP++;
+    }
+    public void endgame(){
+        if(HP == 0){
+            speedx =0;
+            speedy =0;
+        }
     }
 }

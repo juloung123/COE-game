@@ -29,9 +29,9 @@ public class Enemy{
     public void collision(){
         for(int i=0;i<e.size();i++){
             if(getBounds().intersects(e.get(i).getBounds())){
-                e.remove(i);
+                e.remove(i);    
             }
-        }
+        }  
     }
     public Rectangle getBounds(){
         return new Rectangle(x,y,32,32);
@@ -41,5 +41,9 @@ public class Enemy{
     }
     public int positiony(){
         return y;
+    }
+    //เมื่อหัวใจเหลือ 0 จะจบเกม
+    public void endgame(){
+        speedx = 0;
     }
 }

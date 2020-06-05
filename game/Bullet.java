@@ -45,4 +45,7 @@ public class Bullet{
     public int positiony(){
         return y;
     }
+    public void endgame(){
+        speedx = 0;
+    }
 }
