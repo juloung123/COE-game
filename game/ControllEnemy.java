@@ -1,11 +1,7 @@
 package game;
 
-import javax.swing.*;
-import java.awt.event.*;
 import java.util.LinkedList;
 import java.awt.Graphics2D;
-import java.awt.Color;
-import java.awt.Graphics;
 //บรรจุ Object Enemy
 public class ControllEnemy{
     private static LinkedList<Enemy> e = new LinkedList<>();

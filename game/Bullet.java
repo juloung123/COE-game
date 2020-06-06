@@ -1,12 +1,8 @@
 package game;
 
 //ออกแบบกระสุน
-import game.*;
-import javax.swing.*;
-import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
