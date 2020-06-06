@@ -18,7 +18,7 @@ public class music{
                 FloatControl control = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
                 control.setValue(20f * (float) Math.log10(0.15));
                 clip.start();
-
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
                 //JOptionPane.showMessageDialog(null,"Press ok to stop playing");
             }
             else{
