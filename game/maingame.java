@@ -7,11 +7,9 @@ public class maingame {
     public static final int WIDTH = 1280;
     public static final int HIGHT = 720;
     public static void main(String[] args){
-        //String filepath = "C:/Users/BlazeR/Desktop/project/game/Kimi no Sweet Pussy.wav";
         String filepath = "Kimi no Sweet Pussy.wav";
         music musicObject = new music();
         musicObject.song(filepath);
-
         JFrame window = new JFrame("COE PSU GAME");
         window.setSize(WIDTH,HIGHT);
         window.setResizable(false);

@@ -45,7 +45,7 @@ public class Bulletbag{
     }
     //แอดกระสุนเข้า Linkedlist
     public void addBullet(Bullet bullet){
-        if(Player.HP != 0){
+        if(checkbullet() && Player.HP != 0){
             e.add(bullet);
         }
     }
@@ -68,5 +68,16 @@ public class Bulletbag{
         for(int i = 0;i<e.size();i++){
             e.remove(i);
         }
+    }
+    //เช็คกระสุนไม่ให้เกิน 10 ลูก ใส่ใน addbullet 
+    public boolean checkbullet(){
+        int check = 0 ;
+        for(int i = 0;i<e.size();i++){
+            ++check;
+        }
+        if(check <= 10){
+            return true;
+        }
+        return false;
     }
 }
